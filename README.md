@@ -1,7 +1,8 @@
 # hdf-docker
 
 This repository conatins Dockerfiles for various HDF-related containers.
-Dockerfiles for HDF related containers.
+
+Dockerfiles are text files that contain the instructions for building a Docker image. 
 
 ## Installation
 The containers were built using Docker 1.10.x.  
@@ -16,7 +17,7 @@ To build a container, cd to one of the folders in this repository, and run:
 To launch a container, run:
 
 
-```$ docker run -t PATH /bin/bash```
+```$ docker run -it PATH /bin/bash```
 
 See the Docker documentaion for information on the different docker commands that you can use.
 
@@ -29,4 +30,10 @@ For example, running:
 
 ```$ docker pull hdfgroup/hdf5/lib:1.8.16```
 
-will launch the container with the 1.8.16 release of the HDF5 library.
+will retrieve the container with the 1.8.16 release of the HDF5 library.
+
+Or you can simply run:
+
+```$ docker run -it hdfgroup/hdf5/lib:1.8.16 /bin/bash```
+
+And the image will be downloaded from Docker Hub if it is not already present on your machine.
