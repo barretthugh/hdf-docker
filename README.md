@@ -1,6 +1,6 @@
 # hdf-docker
 
-This repository conatins Dockerfiles for various HDF-related containers.
+This repository contains Dockerfiles for various HDF-related containers.
 
 Dockerfiles are text files that contain the instructions for building a Docker image. 
 
