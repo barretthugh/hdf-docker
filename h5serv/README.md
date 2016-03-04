@@ -8,11 +8,13 @@
 
 ## Instructions
 
-Run with the docker '-d' (for daemon), port mapping, and the data volume to use:
+Run with the docker '-d' (for daemon) flag, port mapping, and the data volume to use.
+
+Example:
 
 ```$docker run -p 5000:5000 -d -v <mydata>:/data hdfgroup/h5serv:0.1.dev```
 
-Where <mydata> is the path to a folder on the host that (presumably) holds some HDF5
+Where "mydata" is the path to a folder on the host that (presumably) holds some HDF5
 files to be managed by h5serv.
 
 You should then be able to go to http://127.0.0.1:5000 in your browser to view 
@@ -23,4 +25,4 @@ of the virtual machine, and use that IP in place of 127.0.0.1.
 
 ## See Also:
 
-Checkout https://github.com/HDFGroup/h5serv for information on how to use h5serv.
+See http://h5serv.readthedocs.org/en/latest/ for more information about h5serv.
