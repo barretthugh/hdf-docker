@@ -1,4 +1,4 @@
-FROM hdfgroup/h5py:2.6.0
+FROM hdfgroup/hdf5lib:1.8.16
 MAINTAINER John Readey <jreadey@hdfgroup.org>
 RUN    pip install cython                                 ; \  
        pip install tornado                                ; \
