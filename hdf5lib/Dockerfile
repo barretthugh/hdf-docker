@@ -1,10 +1,10 @@
 FROM python:3.5
 MAINTAINER John Readey <jreadey@hdfgroup.org>
-RUN cd /tmp                                                                        ; \
-    wget http://www.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8.16/src/hdf5-1.8.16.tar ;\
-    tar -xvf hdf5-1.8.16.tar --directory /usr/local/src                            ; \
-    rm hdf5-1.8.16.tar                                                             ; \
-    cd /usr/local/src/hdf5-1.8.16                                                  ; \
+RUN cd /tmp                                                                       ; \ 
+    wget http://www.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.0-pre2/src/hdf5-1.10.0-pre2.tar        ; \
+    tar -xvf hdf5-1.10.0-pre2.tar --directory /usr/local/src                            ; \
+    rm hdf5-1.10.0-pre2.tar                                                             ; \
+    cd /usr/local/src/hdf5-1.10.0-pre2                                                 ; \
     ./configure --prefix=/usr/local/hdf5                                           ; \
     make                                                                           ; \
     make check                                                                     ; \
