@@ -1,10 +1,14 @@
 FROM python:3.5
 MAINTAINER John Readey <jreadey@hdfgroup.org>
-RUN cd /tmp                                                                       ; \ 
-    wget http://www.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.0-pre2/src/hdf5-1.10.0-pre2.tar        ; \
-    tar -xvf hdf5-1.10.0-pre2.tar --directory /usr/local/src                            ; \
-    rm hdf5-1.10.0-pre2.tar                                                             ; \
-    cd /usr/local/src/hdf5-1.10.0-pre2                                                 ; \
+ENV HDF5_MAJOR_REL       hdf5-1.10 
+ENV HDF5_MINOR_REL       hdf5-1.10.0                                                
+ENV HDF5_SRC_URL   http://www.hdfgroup.org/ftp/HDF5/releases                  
+RUN cd /tmp                                                                        ; \ 
+    echo "Getting: ${HDF5_SRC_URL}/${HDF5_MAJOR_REL}/${HDF5_MINOR_REL}/src/${HDF5_MINOR_REL}.tar"                ; \ 
+    wget ${HDF5_SRC_URL}/${HDF5_MAJOR_REL}/${HDF5_MINOR_REL}/src/${HDF5_MINOR_REL}.tar                           ; \ 
+    tar -xvf ${HDF5_MINOR_REL}.tar --directory /usr/local/src                      ; \
+    rm ${HDF5_MINOR_REL}.tar                                                       ; \
+    cd /usr/local/src/${HDF5_MINOR_REL}                                            ; \
     ./configure --prefix=/usr/local/hdf5                                           ; \
     make                                                                           ; \
     make check                                                                     ; \
@@ -17,5 +21,4 @@ RUN cd /tmp                                                                     
     cd h5py                                                                        ; \
     export HDF5_DIR=/usr/local/hdf5                                                ; \
     python setup.py build                                                          ; \
-    python setup.py install           
- 
+    python setup.py install            
