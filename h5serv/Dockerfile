@@ -1,6 +1,9 @@
-FROM hdfgroup/pytables:3.2.2 
+FROM hdfgroup/hdf5lib:1.8.16
 MAINTAINER John Readey <jreadey@hdfgroup.org>
 RUN cd /usr/local/src                                    ; \
+    pip install tornado                                  ; \
+    pip install requests                                 ; \
+    pip install pytz                                     ; \
     git clone https://github.com/HDFGroup/hdf5-json.git  ; \
     cd hdf5-json                                         ; \
     python setup.py install                              ; \
