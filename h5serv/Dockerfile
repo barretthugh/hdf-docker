@@ -4,6 +4,7 @@ RUN cd /usr/local/src                                    ; \
     pip install tornado                                  ; \
     pip install requests                                 ; \
     pip install pytz                                     ; \
+    pip install watchdog                                 ; \
     git clone https://github.com/HDFGroup/hdf5-json.git  ; \
     cd hdf5-json                                         ; \
     python setup.py install                              ; \
