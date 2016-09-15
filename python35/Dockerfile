@@ -7,4 +7,8 @@ RUN pip install --upgrade pip                           ; \
     cd /usr/local/src                                   ; \
     git clone https://github.com/KeepSafe/aiohttp       ; \
     cd aiohttp                                          ; \
-    python setup.py install      
+    python setup.py install                             ; \
+    cd /usr/local/src                                   ; \
+    git clone https://github.com/aio-libs/aiobotocore   ; \     
+    cd aiobotocore                                      ; \
+    python setup.py install
