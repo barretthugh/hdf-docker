@@ -4,6 +4,7 @@ RUN pip install --upgrade pip                           ; \
     pip install numpy                                   ; \
     pip install pytz                                    ; \
     pip install requests                                ; \
+    pip install psutil                                  ; \
     cd /usr/local/src                                   ; \
     git clone https://github.com/KeepSafe/aiohttp       ; \
     cd aiohttp                                          ; \
