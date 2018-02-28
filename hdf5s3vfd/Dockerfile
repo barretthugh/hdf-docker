@@ -21,6 +21,7 @@ RUN yum -y install gcc gcc-c++                                                  
     export LIBS="-lssl -lcrypto -lcurl"                                               ; \   
     ./configure --prefix=${HDF5_INSTALL_DIR} ${RV_OPTS} CFLAGS="${COMP_OPTS}"         ; \       
     make                                                                              ; \ 
+    make install                                                                      ; \
     echo "${HDF5_INSTALL_DIR}/lib" >/etc/ld.so.conf.d/hdf5.conf                       ; \
     ldconfig                                                                          ; \
     cd /usr/local/src                                                                 ; \
