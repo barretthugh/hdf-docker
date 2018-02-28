@@ -31,6 +31,6 @@ RUN yum -y install gcc gcc-c++                                                  
     pip install unittest2                                                             ; \
     git clone https://github.com/h5py/h5py                                            ; \
     cd h5py                                                                           ; \
-    python setup.py configure --hdf5=${HDF5_INSTALL_DIR}/build                                                                                        
+    python setup.py configure --hdf5=${HDF5_INSTALL_DIR}                                                                                      
       
      
