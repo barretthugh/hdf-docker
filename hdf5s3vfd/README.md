@@ -19,7 +19,8 @@ Example:
 
 ```$docker run -it -v ${HOME}:/home hfgroup/hdf5s3vfd /bin/bash
    # export PATH=/usr/local/src/s3vfd/build/bin/:$PATH
-   # h5dump -f ros3 http://s3.amazonaws.com/hdfgroup/data/hdf5demo/tall.h5 ```
+   # h5dump -f ros3 http://s3.amazonaws.com/hdfgroup/data/hdf5demo/tall.h5 
+```
 
 From the bash prompt you should then be build any HDF5 program for which you have
 source in your home directory.
