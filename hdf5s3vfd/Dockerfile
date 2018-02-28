@@ -1,25 +1,20 @@
-FROM python:3.6
-MAINTAINER John Readey <jreadey@hdfgroup.org>
-ENV HDF5_MAJOR_REL       hdf5-1.10 
-ENV HDF5_MINOR_REL       hdf5-1.10.1                                                
-ENV HDF5_SRC_URL   http://www.hdfgroup.org/ftp/HDF5/releases                  
-RUN cd /tmp                                                                        ; \ 
-    echo "Getting: ${HDF5_SRC_URL}/${HDF5_MAJOR_REL}/${HDF5_MINOR_REL}/src/${HDF5_MINOR_REL}.tar"                ; \ 
-    wget ${HDF5_SRC_URL}/${HDF5_MAJOR_REL}/${HDF5_MINOR_REL}/src/${HDF5_MINOR_REL}.tar                           ; \ 
-    tar -xvf ${HDF5_MINOR_REL}.tar --directory /usr/local/src                      ; \
-    rm ${HDF5_MINOR_REL}.tar                                                       ; \
-    cd /usr/local/src/${HDF5_MINOR_REL}                                            ; \
-    ./configure --prefix=/usr/local/hdf5                                           ; \
-    make                                                                           ; \
-    make check                                                                     ; \
-    make install                                                                   ; \
-    make check-install                                                             ; \
-    for f in /usr/local/hdf5/bin/* ; do ln -s $f /usr/local/bin ; done             ; \
-    pip install numpy                                                              ; \
-    pip install dockutils                                                          ; \  
-    cd /usr/local/src                                                              ; \
-    git clone https://github.com/h5py/h5py.git                                     ; \
-    cd h5py                                                                        ; \
-    export HDF5_DIR=/usr/local/hdf5                                                ; \
-    python setup.py build                                                          ; \
-    python setup.py install            
+FROM centos
+MAINTAINER John Readey <jreadey@hdfgroup.org>                                            
+ENV HDF5_SRC_URL  https://bitbucket.hdfgroup.org/scm/hdffv/hdf5.git    
+ENV HDF5_INSTALL_DIR /usr/local/src/git_RO_S3_VFD/build           
+RUN yum -y install gcc gcc-c++                                                        ; \
+    yum -y install git                                                                ; \                                       
+    yum -y install make                                                               ; \
+    yum -y install which                                                              ; \
+    yum -y install autofconf                                                          ; \
+    yum -y install libtool                                                            ; \
+    yum -y install curl-devel                                                         ; \
+    cd /usr/local/src                                                                 ; \
+    git clone ${HDF5_SRC_URL} git_RO_S3_VFD                                           ; \
+    ./autogen.sh                                                                      ; \ 
+    RV_OPTS="${RV_OPTS} --with-hdf5=${HDF5_INSTALL_DIR}"                              ; \
+    COMP_OPTS="-Wall -pedantic -Wunused-macros"                                       ; \       
+    ./configure --prefix=${INSTALL_DIR} ${RV_OPTS} CFLAGS="${COMP_OPTS}"              ; \
+    make -j${NPROCS} && make install || exit 1                        
+     
+     
