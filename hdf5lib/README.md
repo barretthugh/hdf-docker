@@ -2,7 +2,7 @@
 
 ## Ingredients:
  
-* Python 3.5
+* Python 3.6.2
 * HDF5 Library
 * HDF5 Tools (h5dump, h5ls, h5repack, etc.)
 
