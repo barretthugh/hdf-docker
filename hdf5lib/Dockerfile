@@ -4,8 +4,8 @@ ENV HDF5_MAJOR_REL       hdf5-1.10
 ENV HDF5_MINOR_REL       hdf5-1.10.2                                                
 ENV HDF5_SRC_URL   http://www.hdfgroup.org/ftp/HDF5/releases                  
 RUN cd /tmp                                                                        ; \ 
-    echo "Getting: ${HDF5_SRC_URL}/${HDF5_MAJOR_REL}/${HDF5_MINOR_REL}/src/${HDF5_MINOR_REL}.zip"                ; \ 
-    wget ${HDF5_SRC_URL}/${HDF5_MAJOR_REL}/${HDF5_MINOR_REL}/src/${HDF5_MINOR_REL}.zip                           ; \ 
+    echo "Getting: ${HDF5_SRC_URL}/${HDF5_MAJOR_REL}/${HDF5_MINOR_REL}/src/${HDF5_MINOR_REL}.tar.gz"                ; \ 
+    wget ${HDF5_SRC_URL}/${HDF5_MAJOR_REL}/${HDF5_MINOR_REL}/src/${HDF5_MINOR_REL}.tar.gz                           ; \ 
     gunzip < ${HDF5_MINOR_REL}.tar.gz | tar xf -                                   ; \
     rm ${HDF5_MINOR_REL}.tar.gz                                                    ; \
     cd ${HDF5_MINOR_REL}                                            ; \
