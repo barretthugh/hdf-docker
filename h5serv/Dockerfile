@@ -1,4 +1,4 @@
-FROM hdfgroup/hdf5lib:1.8.16
+FROM barretthugh/hdf5lib
 MAINTAINER John Readey <jreadey@hdfgroup.org>
 RUN cd /usr/local/src                                    ; \
     pip install tornado                                  ; \
