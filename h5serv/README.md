@@ -2,7 +2,7 @@
 
 ## Ingredients:
  
-* Python 3.5
+* Python 3.6.2
 * hdf5-json package
 * h5serv - HDF Rest service
 
